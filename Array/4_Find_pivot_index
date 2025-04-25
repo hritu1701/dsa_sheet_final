@@ -1,0 +1,27 @@
+    // Leetcode 724. Find Pivot Index
+    // https://leetcode.com/problems/find-pivot-index/  
+    
+    int pivotIndex(vector<int>& nums) {
+        int n=nums.size();
+        int sum=0;
+        for(int &x : nums){
+            sum+=x;
+        }
+        int cs=0;
+
+        for(int i=0;i<n;i++){
+             int ls=cs;
+             int rs=sum-ls-nums[i];
+             if(ls==rs) return i; 
+             else cs +=nums[i];
+            
+        }
+        return -1;
+        
+    }
+    /*Approach
+    1. Pahle sum nikal lenge whole array ka.
+    2. Fir cumulative sum nikalte rhenge or check krenge saare index pe.
+    3. Jis index pe right sum or left sum equal hua to index return kr denge.
+    4. Agar last tk na mile to loop ke bhar -1 return kr denge.
+    */ 
