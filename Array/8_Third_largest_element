@@ -1,0 +1,23 @@
+    int thirdLargest(vector<int> &arr) {
+        int n=arr.size();
+        if(n < 3) return 0;
+        int l=arr[0];
+        int sl=INT_MIN;
+        int tl=INT_MIN;
+        for(int i=1;i<n;i++){
+            if(arr[i]>l){
+                tl=sl;
+                sl=l;
+                l=arr[i];
+            }
+            else if(arr[i]>sl){
+                tl=sl;
+                sl=arr[i];
+            }
+            else if(arr[i]>tl){
+                tl=arr[i];
+            }
+            
+        }
+        return tl;
+    }
